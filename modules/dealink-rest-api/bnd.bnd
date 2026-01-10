@@ -1,0 +1,4 @@
+Bundle-Name: dealink-rest-api
+Bundle-SymbolicName: com.astra.dealink.rest.api
+Bundle-Version: 1.0.0
+Liferay-Configuration-Path: /configuration

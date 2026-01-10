@@ -1,0 +1,8 @@
+dependencies {
+	compileOnly group: "com.liferay.portal", name: "release.dxp.api", version: "7.4.13.u92"
+	
+	compileOnly project(":modules:dewa:dewa-service")
+	compileOnly project(":modules:dewa:dewa-api")
+	compileOnly project(":modules:dewa-utils")
+
+}

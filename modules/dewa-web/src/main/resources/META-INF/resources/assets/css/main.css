@@ -1,0 +1,691 @@
+
+.cms-content {
+    margin: 25px;
+}
+
+.cms-content > .tabcontent {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.42);
+    border-radius: 10px;
+}
+
+.cms-content > .tabcontent > .nav.nav-tabs {
+    margin: 25px;
+    border-bottom: 3px solid #DBEDFF;
+}
+
+.cms-content > .tabcontent > .tab-content {
+    margin: 25px;
+}
+
+.nav-item {
+    width: 185px;
+    text-align: center;
+    border: 0px;
+}
+
+.nav > li > a {
+    color: #95B6DF;
+}
+
+
+.nav-tabs > li.nav-item.active > a {
+    border: 0px;
+    border-bottom: 4px solid #014689;
+    color: #014689;
+}
+
+#role_table tbody > tr {
+    border-left: 1px solid #DCDFE3;
+    border-right: 1px solid #DCDFE3;
+}
+
+table#role_table,
+table#docflow_table {
+    border: 1px solid #DCDFE3;
+}
+
+#role_table thead,
+#docflow_table thead {
+    background-color: #F6F6F6;
+    border-radius: 9px;
+    border: 1px solid #DCDFE3;
+}
+
+.dataTable > thead > tr > th {
+    border: 1px solid #DCDFE3;
+!important;
+    width: 100%;
+!important;
+}
+
+#docflow_table > thead > tr > th {
+    background-color: #F6F6F6;
+    border: 1px solid #DCDFE3;
+}
+
+#role_table tbody tr,
+#docflow_table tbody tr {
+    border: 1px solid #DCDFE3;
+}
+
+
+div#role_table_wrapper > div.row > div.col-sm-5 {
+    display: none;
+}
+
+div#role_table_wrapper > div.row > div.col-sm-7,
+div#docflow_table_wrapper > div.row > div.col-sm-7 {
+    width: 100%;
+}
+
+div.dataTables_wrapper div.dataTables_paginate {
+    text-align: center;
+}
+
+.pagination {
+    alignment: center;
+}
+
+ul.pagination > li > a {
+    border: 0px;
+}
+
+li.paginate_button.active > a {
+    border-radius: 10px;
+    background-color: #10569C;
+}
+
+
+/* slide button */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 56px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 32px;
+    width: 32px;
+    bottom: -6px;
+    background-color: #95B6DF;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border: 2px solid white;
+}
+
+input:checked + .slider {
+    background-color: #014689;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #014689;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.approver-button .btn-secondary {
+    background-color: #DEEFFF;
+    color: #014689;
+    font-weight: bold;
+}
+
+.approver-button .btn {
+    border: 0px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    border-radius: 20px;
+    height: 40px;
+}
+
+.ipr-color-blue-old {
+    color: #014689;
+}
+
+.btn-ipr {
+    background: #014689;
+    border: 1px solid #014689;
+    color: white;
+    height: 40px;
+    width: 150px;
+    border-radius: 5px;
+}
+
+.btn-ipr:hover,
+.btn-ipr-cancel {
+    background: #DEEFFF;
+}
+
+.btn-ipr-cancel {
+    background: white;
+    border: 1px solid #014689;
+    color: #014689;
+    height: 40px;
+    width: 150px;
+    border-radius: 5px;
+}
+
+.mrg-btm-docflow {
+    margin-bottom: 15px;
+}
+
+/* loading style */
+.loading-layer {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9999;
+}
+
+.spinner {
+    width: 20vw;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.spinner > div {
+    width: 18px;
+    height: 18px;
+    background-color: #2ca8ff;
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.spinner .bounce1 {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+    0%, 80%, 100% {
+        -webkit-transform: scale(0);
+    }
+    40% {
+        -webkit-transform: scale(1);
+    }
+}
+
+@keyframes sk-bouncedelay {
+    0%, 80%, 100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    40% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+/* end of loading style */
+
+/* button status doc */
+.btn-status {
+    border: 0px;
+    height: 22px;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.btn-on-warning {
+    background-color: rgba(253, 167, 0, 0.15);
+    color: #FDA700;
+}
+
+.btn-on-danger {
+    background-color: rgba(238, 28, 37, 0.1);
+    color: #EE1C25;
+}
+
+.btn-new {
+    background-color: rgba(1, 70, 137, 0.2);
+    color: #014689;
+}
+
+.btn-next {
+    background-color: #fafafa;
+    color: #999999;
+}
+
+.content-filling {
+    padding: 36px;
+    box-shadow: 0px 5px 15px rgb(31 31 31 / 8%);
+    border-radius: 10px;
+}
+
+.ipr-filling {
+    border: 1px solid #DBEDFF;
+    border-radius: 5px;
+    height: 35px;
+}
+
+.lh-ipr {
+    line-height: 35px;
+}
+
+div.box-filling {
+    border: 1px solid #DBEDFF;
+    border-radius: 5px;
+    margin-top: 35px;
+    margin-left: 15px;
+}
+
+div.box-filling-2 {
+    border: 1px solid #DBEDFF;
+    border-radius: 5px;
+    margin-top: 35px;
+}
+
+div.box-filling-3 {
+    border: 1px solid #DBEDFF;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.btn-ipr-1 {
+    background-color: #014689;
+    color: white;
+    min-height: 35px;
+    border: 0px;
+    border-radius: 5px;
+    padding: 0 15px;
+}
+
+.btn-ipr-1-file {
+    background-color: #014689;
+    color: white;
+    height: 38px;
+    border: 1px solid #014689;
+    border-radius: 5px;
+    padding: 0 15px;
+}
+
+.ipr-color {
+    color: #014689;
+}
+
+.ipr-gray {
+    color: gray;
+}
+
+
+.btn-ipr-2 {
+    min-height: 35px;
+    color: #014689;
+    border: 1px solid #014689;
+    background-color: white;
+    padding: 0 15px;
+    margin: 0 15px;
+    border-radius: 5px;
+}
+
+.btn-ipr-3 {
+    min-height: 35px;
+    color: #014689;
+    border: 0px;
+    background-color: white;
+    padding: 0 15px;
+    margin: 0 15px;
+    border-radius: 5px;
+}
+
+.btn-ipr-4 {
+    min-height: 35px;
+    color: #014689;
+    border: 0px;
+    background-color: white;
+    padding: 0 15px;
+    margin: 0 15px;
+    border-radius: 5px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    text-decoration-line: underline;
+}
+
+.btn-ipr-a {
+    background-color: #014689;
+    color: white;
+    border: 0px;
+    border-radius: 5px;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+a.btn-ipr-a:hover {
+    text-decoration: none !important;
+}
+
+.btn-ipr-a-2 {
+    background-color: white;
+    color: #014689;
+    border: 1px solid #014689;
+    border-radius: 5px;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+a.btn-ipr-a-2:hover {
+    text-decoration: none !important;
+}
+
+a.btn-status:hover {
+    text-decoration: none !important;
+
+}
+
+.dateIcon {
+    background-image: url(/o/com.astra.dewa.web/assets/img/calender.svg);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: calc(100% - 10px) center;
+}
+
+.file-input-disabled {
+    border: 1px solid #DBEDFF !important;
+    border-radius: 0 5px 5px 0 !important;
+    background-color: #fafafa !important;
+}
+
+.mg-btm {
+    margin-bottom: 15px;
+}
+
+.mg-top {
+    margin-top: 15px;
+}
+
+/* Start History Approval */
+#swal2-html-container > section.riwayat {
+    font-size: 12px;
+    padding: 0px;
+    overflow: hidden;
+}
+
+.history-header {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #014689;
+    margin-top: 15px;
+    margin-bottom: 50px;
+}
+
+
+.history-content {
+    margin-top: -10px;
+    padding-bottom: 10px;
+    border-left: 3px solid #014689;
+    margin-left: 10px;
+}
+
+.history-content:last-child {
+    border-left: 0;
+    margin-left: 12px;
+}
+
+.history-content:before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #014689;
+    position: absolute;
+    left: -11px;
+}
+
+.history-content-ongoing {
+    margin-top: -10px;
+    padding-bottom: 10px;
+    margin-left: 13px;
+}
+
+.history-content-ongoing:before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: gray;
+    position: absolute;
+    left: -11px;
+}
+
+.history-status {
+    color: #26AE60;
+    background-color: rgba(38, 174, 96, 0.1);
+    padding: 2px 10px;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.history-date {
+    text-align: end;
+    color: gray;
+    text-align: end;
+}
+
+.history-user {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.text-left {
+    text-align: left;
+}
+/* End History Approval */
+
+
+/* Start The container label checkbox custom */
+.container-label {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container-label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    border: 1px solid gray;
+}
+
+/* On mouse-over, add a grey background color */
+.container-label:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container-label input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container-label input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container-label .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/* End The container label checkbox custom */
+
+/* start APPROVAL*/
+.form-data:before {
+    content: ": ";
+    margin-right: 5px;
+}
+
+.form-data-2:before {
+    content: ": ";
+    color: white;
+    margin-right: 5px;
+}
+
+/* end APPROVAL*/
+
+
+.input-group-flex {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    width: 100%;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.input-group-flex-1 {
+    position: relative;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    width: 1%;
+    margin-bottom: 0;
+}
+
+.mg-btm {
+    margin-bottom: 15px;
+}
+
+.btn-premise {
+    min-width: 160px;
+    height: 38px;
+}
+
+#signed-requester {
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+    accent-color: #014689;
+}
+
+.myBreadcrumb {
+    border: 1px solid;
+    margin-top: -20px;
+    background-color: #014689;
+    color: #95B6DF;
+    height: 44px;
+    margin-left: -46px;
+    margin-right: -45px;
+}
+
+.myBreadcrumb > div > p {
+    margin-left: 12rem;
+    line-height: 42px;
+}
+
+.status {
+    font-weight: 600;
+    color: #FFFFFF;
+}
+
+@media only screen and (max-width: 1199px) {
+    .myBreadcrumb {
+        margin-right: -25px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .myBreadcrumb {
+        margin-right: -15px;
+    }
+
+    .myBreadcrumb > div > p {
+        margin-left: 9rem;
+        line-height: 42px;
+    }
+}
+
+/* format time di datetimepicker */
+td.separator {
+    border-top: none;
+}

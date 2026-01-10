@@ -1,0 +1,6 @@
+Bundle-Name: coba-service
+Bundle-SymbolicName: com.astra.coba.service
+Bundle-Version: 1.0.0
+Liferay-Require-SchemaVersion: 1.0.0
+Liferay-Service: true
+-dsannotations-options: inherit

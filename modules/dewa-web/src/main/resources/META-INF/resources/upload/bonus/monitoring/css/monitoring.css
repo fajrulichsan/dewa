@@ -1,0 +1,114 @@
+/*Card*/
+#upload_bonus_cards {
+    display: none;
+}
+
+.upload_bonus_card {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 0.75em;
+    margin-bottom: 10px;
+}
+
+#pagination {
+    display: none;
+}
+
+
+/*Table*/
+#upload_bonus_table > thead {
+    background-color: #FFFFFF;
+    border: none !important;
+    color: black;
+    border-radius: 10px 10px 0 0;
+}
+
+.table > thead:first-child > tr:first-child > th:first-child {
+    border-radius: 10px 0 0 0;
+}
+
+.table > thead:first-child > tr:first-child > th:last-child {
+    border-radius: 0 10px 0 0;
+}
+
+table#upload_bonus_table {
+    border: 1px solid #DCDFE3;
+    border-radius: 10px 10px 10px 10px;
+}
+
+table#upload_bonus_table {
+    border-radius: 10px 10px 10px 10px;
+}
+
+#upload_bonus_table tbody tr {
+    border: 1px solid #DCDFE3;
+}
+
+#upload_bonus_table > thead > tr > th {
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+
+    /*font-family: Rubik;*/
+    font-size: 14px;
+    /*font-weight: 500;*/
+    line-height: 17px;
+    letter-spacing: 0px;
+    /*text-align: left;*/
+}
+
+#upload_bonus_table table td {
+    vertical-align: middle;
+}
+
+.btn_table, .btn_table:link, .btn_table:hover {
+    border: 0;
+    background-color: #014689 !important;
+    color: white;
+    font-weight: 400;
+    /*opacity: 0.8;*/
+    padding: 8px 16px;
+    /*border-radius: 5px;*/
+}
+
+@media only screen and (max-width: 768px) {
+    #upload_bonus_content {
+        display: none;
+    }
+    #upload_bonus_cards {
+        display: block;
+    }
+    #pagination {
+        display: block;
+    }
+}
+
+/*Select2*/
+.select2-container--default .select2-selection--single {
+    padding: 6px;
+    /*margin-top: 16px;*/
+    /*margin-bottom: 16px;*/
+    height: 37px;
+    /*width: 148px;*/
+    font-size: 1.2em;
+    position: relative;
+}
+
+/*.modal{*/
+/*    overflow-y: auto;*/
+/*    !*display: block !important;*!*/
+/*    display: none !important;*/
+/*}*/
+
+.modal-dialog {
+    /*left: 0;*/
+    /*right: 0;*/
+    /*overflow-y: auto;*/
+    /*overflow-y: initial !important*/
+}
+
+.modal-body {
+    /*max-height: calc(100vh - 212px);*/
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+}

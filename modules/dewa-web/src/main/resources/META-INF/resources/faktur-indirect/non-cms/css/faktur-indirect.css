@@ -1,0 +1,217 @@
+.faktur_indirect > .tabcontent {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.42);
+    border-radius: 10px;
+    padding: 0.75em;
+}
+
+/* breadcrumb */
+.breadcrumb {
+    background: none;
+    color: #333;
+}
+
+.breadcrumb > li + li:before {
+    content: ">";
+    color: #333;
+}
+
+/* title */
+.main-title {
+    display: flex;
+    justify-content: center;
+}
+
+.main-title > h3 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+/* table */
+#faktur_indirect_non_cms_table {
+    border-radius: 10px;
+    border: 1px solid white;
+}
+
+#faktur_indirect_non_cms_table > thead {
+    background-color: white;
+    border: none !important;
+    color: black;
+    border-radius: 10px 10px 0 0;
+}
+
+.table > thead:first-child > tr:first-child > th:first-child {
+    border-radius: 10px 0 0 0;
+}
+
+.table > thead:first-child > tr:first-child > th:last-child {
+    border-radius: 0 10px 0 0;
+}
+
+table#faktur_indirect_non_cms_table {
+    border: 1px solid #DCDFE3;
+    border-radius: 10px;
+}
+
+#faktur_indirect_non_cms_table tbody tr {
+    border: 1px solid #DCDFE3;
+}
+
+#faktur_indirect_non_cms_table > thead > tr > th {
+    font-weight: 600;
+    text-align: center;
+    border: unset !important;
+}
+
+.empty-table {
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: none !important;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.empty-table > p {
+    margin: 0;
+}
+
+/* filter button */
+.btn_table, .btn_table:hover {
+    border: 0;
+    background-color: #014689 !important;
+    color: white;
+    font-weight: 400;
+    opacity: 0.8;
+    padding: 8px 16px;
+    border-radius: 5px;
+    height: 40px;
+}
+
+/* table filter */
+.table-filters {
+    margin: 16px 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.table-filters div[class^="col-"] {
+    padding: 0;
+}
+
+.table-filters div[class^="col"]:not(:first-child) {
+    padding-left: 20px;
+}
+
+.table-filters input,
+.table-filters input::placeholder {
+    font-size: 16.8px;
+}
+
+.table-filters input {
+    height: 40px !important;
+    background-color: white !important;
+    color: #444 !important;
+    cursor: pointer !important;
+    border: 1px solid gray;
+}
+
+.period-filter {
+    z-index: 0;
+}
+
+/* Select2 */
+.dataTables_length .select2-selection.select2-selection--single {
+    border: 2px solid #DBEDFF;
+}
+
+.select2-container--default .select2-selection--single {
+    padding: 6px;
+    height: 40px !important;
+    font-size: 1.2em;
+    position: relative;
+    border: 1px solid gray;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__placeholder {
+    color: #bbb;
+}
+
+.form-control:focus {
+    border: 1px solid #DBEDFF;
+}
+
+@media only screen and (max-width: 768px) {
+    .main-title {
+        justify-content: start;
+    }
+
+    .main-title > h3 {
+        font-size: 22px;
+        font-weight: 600;
+        margin-bottom: 6px;
+    }
+
+    #faktur_indirect_non_cms_table thead {
+        display: none;
+    }
+
+    table#faktur_indirect_non_cms_table ,
+    #faktur_indirect_non_cms_table tbody,
+    #faktur_indirect_non_cms_table tr,
+    #faktur_indirect_non_cms_table td {
+        display: block;
+    }
+
+    table#faktur_indirect_non_cms_table  {
+        border: none !important;
+    }
+
+    #faktur_indirect_non_cms_table td {
+        position: relative;
+        border: none !important;
+        padding: 3px !important;
+        font-size: 16px;
+    }
+
+    #faktur_indirect_non_cms_table tr {
+        padding: 12px;
+        margin-bottom: 15px;
+        border-radius: 6px;
+        border: none !important;
+        /*box-shadow: 0 8px 20px 0 rgba(13, 12, 34, 0.08);*/
+        box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    #faktur_indirect_non_cms_table td:not(:nth-child(2)) {
+        text-align: right !important;
+    }
+
+    #faktur_indirect_non_cms_table td:first-child,
+    #faktur_indirect_non_cms_table td:nth-child(3) {
+        display: none;
+    }
+
+    #faktur_indirect_non_cms_table td:nth-child(2) {
+        font-size: 16px;
+        white-space: break-spaces !important;
+        word-wrap: break-word !important;
+    }
+
+    #faktur_indirect_non_cms_table td:nth-child(4):before {
+        position: absolute;
+        left: 3px;
+        font-weight: 600;
+        content: "Periode Faktur";
+    }
+
+    #faktur_indirect_non_cms_table td:nth-child(5) span {
+        justify-content: end;
+    }
+
+    .faktur_indirect > .tabcontent {
+        box-shadow: none;
+        border-radius: 0;
+        padding: 0;
+    }
+}

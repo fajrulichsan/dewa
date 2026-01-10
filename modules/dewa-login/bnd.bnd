@@ -1,0 +1,4 @@
+Bundle-Name: dewa-login
+Bundle-SymbolicName: com.astra.dewa.login
+Bundle-Version: 1.0.0
+Export-Package: com.astra.dewa.login.constants

@@ -1,0 +1,4 @@
+Bundle-Name: com.dewa-cms
+Bundle-SymbolicName: com.astra.dewa.cms
+Bundle-Version: 1.0.0
+Export-Package: com.astra.dewa.cms.constants

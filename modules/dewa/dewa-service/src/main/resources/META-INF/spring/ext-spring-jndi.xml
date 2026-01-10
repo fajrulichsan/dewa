@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans
+        default-destroy-method="destroy"
+        default-init-method="afterPropertiesSet"
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:jee="http://www.springframework.org/schema/jee"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                            http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd"
+>
+
+    <!--
+      External DataSource configuration for DEWA using JNDI lookup.
+      This references the OSGi DataSource service registered with the name 'dewa'.
+     -->
+    <jee:jndi-lookup id="dewaDataSource" jndi-name="osgi:service/dewa" resource-ref="false" />
+
+</beans>

@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gradlew --stop:*)",
+      "Bash(./gradlew:*)",
+      "WebSearch",
+      "WebFetch(domain:search.maven.org)",
+      "WebFetch(domain:mvnrepository.com)",
+      "Bash(dir:*)",
+      "Bash(./gradlew.bat:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

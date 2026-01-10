@@ -1,0 +1,244 @@
+.navbar_right {
+    display: flex;
+}
+
+.navbar_right .icon_wrap {
+    cursor: pointer;
+}
+
+.navbar_right .notifications {
+    margin-right: 15px;
+}
+
+.navbar_right .notifications .icon_wrap {
+    font-size: 28px;
+}
+
+.navbar_right .notifications {
+    position: relative;
+}
+
+.notification_dd {
+    position: absolute;
+    top: 48px;
+    right: -15px;
+    user-select: none;
+    background: #fff;
+    border: 1px solid #c7d8e2;
+    width: 350px;
+    height: auto;
+    display: none;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.notification_dd:before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    right: 15px;
+}
+
+.notification_dd li {
+    border-bottom: 1px solid #f1f2f4;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+}
+
+.notification_dd li .notify_data .title {
+    color: #337ab7;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.notification_dd li .notify_data .sub_title {
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 5px;
+}
+
+.notification_dd li .notify_status p {
+    font-size: 12px;
+}
+
+.notification_dd li.success .notify_status p {
+    color: #47da89;
+}
+
+.notification_dd li.failed .notify_status p {
+    color: #fb0001;
+}
+
+.notification_dd li.show_all {
+    display: flex;
+}
+
+.notification_dd li.show_all a {
+    color: #3b80f9;
+    cursor: pointer;
+}
+
+.notification_dd li.show_all a:hover {
+    text-decoration: underline;
+}
+
+.navbar_right .icon_wrap:hover,
+.navbar_right .notifications.active .icon_wrap {
+    color: #3b80f9;
+}
+
+.notifications.active .notification_dd {
+    display: block;
+    z-index: 1000;
+}
+
+.noti_Counter {
+    display: none;
+    position: absolute;
+    margin: 2px 0 0 13px;
+    padding: .2em .6em .3em;
+    background: #ED193F;
+    color: #FFF;
+    font-size: 10px;
+    font-weight: 700;
+    text-align: center;
+    border-radius: 100px;
+    white-space: nowrap;
+    vertical-align: baseline;
+    z-index: 1;
+}
+
+.navbar_right.flex-nowrap {
+    background-color: transparent !important;
+    border: 0px;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.menu-user {
+    display: flex;
+    gap: 10px;
+    margin-left: 10px;
+    align-items: center;
+    position: relative;
+}
+
+.profile-img {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #F8FBFF;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    border-radius: 5px;
+    overflow: hidden;
+    top: 90%;
+}
+
+.dropdown-content a {
+    color: #8B8B8B;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    color: #014689;
+    background-color: #DEEFFF;
+}
+
+
+/* Show the dropdown menu on hover */
+.menu-user:hover .dropdown-content {
+    display: block;
+}
+
+.menu-user-name {
+    min-width: 100px;
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    color: white;
+}
+
+.menu-company-type {
+    color: #B4BEC9;
+    min-width: 100px;
+    font-size: 12px;
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media (max-width: 767px) {
+    .menu-user .menu-user-name,
+    .menu-user .menu-company-type {
+        display: none;
+    }
+
+    .menu-user .dropdown-content {
+        right: 0;
+    }
+}
+
+
+.notif-header p {
+    color: #014689;
+}
+
+
+ul {
+    padding-inline-start: 5px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #aaaaaaa3;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: gray;
+}
+
+.icon_wrap:hover {
+    cursor: default !important;
+}
+
+cursor-pointer:hover {
+    cursor: pointer !important;
+}
+
+.img-daihatsu {
+    max-width: 170px;
+    max-height: 28px !important;
+}

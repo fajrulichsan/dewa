@@ -1,0 +1,81 @@
+@import "variables";
+@import "animation";
+@import "sidebar-wrapper";
+
+/*----------------page-wrapper----------------*/
+
+.page-wrapper {
+    height: 100vh;
+
+    .theme {
+        width: 40px;
+        height: 40px;
+        display: inline-block;
+        margin: 2px;
+        background-size: cover;
+    }
+
+    .theme.default-theme {
+        background: #fff;
+    }
+
+    .page-content {
+
+        display: inline-block;
+        width: 100%;
+        transition: padding-left .3s ease;
+        //overflow-x: hidden;
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 998;
+            background: #000;
+            opacity: .5;
+            display: none;
+
+
+        }
+    }
+
+    &.toggled {
+
+        .sidebar-wrapper {
+            left: 0px;
+        }
+
+        .page-content {
+            @media screen and (min-width: 768px) {
+                padding-left: $sidebar-width;
+            }
+
+            .overlay {
+
+                @media screen and (max-width: 768px) {
+                    display: block;
+                }
+            }
+        }
+
+    }
+
+}
+
+/*---- border-radius ------*/
+.border-radius-on {
+
+    .sidebar-header .user-pic {
+        border-radius: 12px;
+    }
+
+    .badge {
+        border-radius: 8px;
+    }
+
+    .sidebar-menu ul li i {
+        border-radius: $border-radius;
+    }
+}

@@ -1,0 +1,10 @@
+Bundle-Name: coba-api
+Bundle-SymbolicName: com.astra.coba.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.astra.coba.exception,\
+	com.astra.coba.model,\
+	com.astra.coba.service,\
+	com.astra.coba.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../coba-service/service.xml

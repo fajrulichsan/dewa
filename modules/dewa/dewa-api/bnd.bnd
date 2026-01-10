@@ -1,0 +1,9 @@
+Bundle-Name: dewa-api
+Bundle-SymbolicName: com.astra.dewa.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.astra.dewa.exception,\
+	com.astra.dewa.model,\
+	com.astra.dewa.service,\
+	com.astra.dewa.service.persistence,\
+    com.astra.cist.portal.util

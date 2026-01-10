@@ -1,0 +1,36 @@
+-- MySQL
+CREATE TABLE ApplicationHeader
+(
+--    Id           int         NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    Id                        int IDENTITY(1,1) PRIMARY KEY,
+    ApplicationId             int      NOT NULL,
+    ApplicationHeaderStatusId int      NOT NULL,
+    ApplicationCategoryId     int      NOT NULL,
+    DealerId                  int      NOT NULL,
+    TicketNo                  varchar(55)       DEFAULT NULL,
+    TicketCode                varchar(9)        DEFAULT NULL,
+    ReqDate                   datetime          DEFAULT NULL,
+    ReqYear                   int               DEFAULT 0,
+    ReqMonth                  int               DEFAULT 0,
+    ReqScreenName             varchar(55)       DEFAULT NULL,
+    ReqName                   varchar(55)       DEFAULT NULL,
+    ReqEmail                  varchar(55)       DEFAULT NULL,
+    ReqCCEmail                varchar(55)       DEFAULT NULL,
+    ReqPhone                  varchar(16)       DEFAULT NULL,
+    NominalPengajuan          int               DEFAULT 0,
+    ReqDesc                   varchar(255)      DEFAULT NULL,
+    BusinessBenefit           varchar(255)      DEFAULT NULL,
+    FileId                    bigint            DEFAULT 0,
+    FileName                  varchar(255)      DEFAULT NULL,
+    FileUrl                   varchar(255)      DEFAULT NULL,
+    Notes                     varchar(255)      DEFAULT NULL,
+    NotesHistory              text              DEFAULT NULL,
+    RowStatus                 tinyint           DEFAULT 1,
+    CreatedBy                 varchar(35)       DEFAULT NULL,
+    CreatedDate               datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    ModifiedBy                varchar(35)       DEFAULT NULL,
+    ModifiedDate              datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+--    CONSTRAINT fk_ApplicationHeader_ApplicationId FOREIGN KEY (ApplicationId) REFERENCES Application (Id),
+--    CONSTRAINT fk_ApplicationHeader_ApplicationHeaderStatusId FOREIGN KEY (ApplicationHeaderStatusId) REFERENCES ApplicationHeaderStatus (Id),
+--    CONSTRAINT fk_ApplicationHeader_ApplicationCategoryId FOREIGN KEY (ApplicationCategoryId) REFERENCES ApplicationCategory (Id)
+);

@@ -1,0 +1,13 @@
+dependencies {
+	compileOnly project(":modules:coba:coba-api")
+
+	compileOnly group: "com.liferay.portal", name: "release.dxp.api", version: "7.4.13.u92"
+	
+}
+
+buildService {
+	apiDir = "../coba-api/src/main/java"
+	testDir = "../coba-test/src/testIntegration/java"
+}
+
+group = "com.astra.coba"

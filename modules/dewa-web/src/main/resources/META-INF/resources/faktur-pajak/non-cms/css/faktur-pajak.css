@@ -1,0 +1,216 @@
+@media only screen and (max-width: 767px) {
+    .non-cms-table td:not(:nth-child(2)) {
+        text-align: right;
+    }
+
+    .non-cms-table td:first-child {
+        display: none;
+    }
+
+    .non-cms-table td:nth-child(2) {
+        font-size: 16px;
+        white-space: break-spaces !important;
+        word-wrap: break-word !important;
+    }
+
+    .non-cms-table td:nth-child(3):before {
+        content: "Periode Faktur";
+    }
+
+    .non-cms-table td:nth-child(4):before {
+        content: "Tanggal Upload";
+    }
+
+    .non-cms-table td:nth-child(5) span {
+        justify-content: end;
+    }
+}
+
+/* .faktur_pajak > .tabcontent {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.42);
+    border-radius: 10px;
+    padding: 0.75em;
+}
+
+#faktur_pajak_non_cms_table_length > label {
+    visibility: hidden;
+}
+
+#faktur_pajak_non_cms_table_length > label > select {
+    visibility: visible !important;
+}
+
+#faktur_pajak_non_cms_table {
+    border-radius: 10px;
+    border: 1px solid white;
+}
+
+#faktur_pajak_non_cms_table > thead {
+    background-color: white;
+    border: none !important;
+    color: black;
+    border-radius: 10px 10px 0 0;
+}
+
+.table > thead:first-child > tr:first-child > th:first-child {
+    border-radius: 10px 0 0 0;
+}
+
+.table > thead:first-child > tr:first-child > th:last-child {
+    border-radius: 0 10px 0 0;
+}
+
+table#faktur_pajak_non_cms_table {
+    border: 1px solid #DCDFE3;
+    border-radius: 10px 10px 10px 10px;
+}
+
+table#faktur_pajak_non_cms_table {
+    border-radius: 10px 10px 10px 10px;
+}
+
+#faktur_pajak_non_cms_table tbody tr {
+    border: 1px solid #DCDFE3;
+}
+
+#faktur_pajak_non_cms_table > thead > tr > th {
+    font-weight: normal;
+    text-align: center;
+}
+
+#approval_table_filter > label > input {
+    background-image: url(<%=request.getContextPath()%>/assets/img/search.svg);
+    background-position: 10px 8px;
+    background-repeat: no-repeat;
+    padding: 5px 20px 5px 40px;
+}
+
+.empty-table {
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: none !important;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.main-title {
+    display: flex;
+    justify-content: center;
+}
+
+.main-title > h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 1em;
+}
+
+.empty-table > p {
+    margin: 0;
+}
+
+.dataTables_length {
+    padding: 16px;
+}
+
+.btn_table, .btn_table:hover {
+    border: 0px;
+    background-color: #014689 !important;
+    color: white;
+    font-weight: 400;
+    opacity: 0.8;
+    padding: 8px 16px;
+    border-radius: 5px;
+}
+
+.period-filter {
+    z-index: 0;
+}
+
+.select2-container--default .select2-selection--single {
+    padding: 6px;
+    margin-top: 16px;
+    height: 37px;
+    font-size: 1.2em;
+    position: relative;
+}
+
+.select2-container--default .select2-selection__placeholder {
+    color: #bababa;
+}
+
+@media only screen and (max-width: 768px) {
+    .main-title {
+        justify-content: start;
+    }
+
+    .main-title > h3 {
+        font-size: 22px;
+        font-weight: 600;
+        margin-bottom: 6px;
+    }
+
+    #faktur_pajak_non_cms_table thead,
+    .dataTables_length {
+        display: none;
+    }
+
+    table#faktur_pajak_non_cms_table ,
+    #faktur_pajak_non_cms_table tbody,
+    #faktur_pajak_non_cms_table tr,
+    #faktur_pajak_non_cms_table td {
+        display: block;
+    }
+
+    table#faktur_pajak_non_cms_table  {
+        border: none !important;
+    }
+
+    #faktur_pajak_non_cms_table td {
+        position: relative;
+        border: none !important;
+        padding: 3px !important;
+        font-size: 16px;
+    }
+
+    #faktur_pajak_non_cms_table tr {
+        padding: 12px;
+        margin-bottom: 15px;
+        border-radius: 6px;
+        border: none !important;
+        box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    #faktur_pajak_non_cms_table td:not(:nth-child(2)) {
+        text-align: right !important;
+    }
+
+    #faktur_pajak_non_cms_table td:first-child,
+    #faktur_pajak_non_cms_table td:nth-child(3) {
+        display: none;
+    }
+
+    #faktur_pajak_non_cms_table td:nth-child(2) {
+        font-size: 16px;
+        white-space: break-spaces !important;
+        word-wrap: break-word !important;
+    }
+
+    #faktur_pajak_non_cms_table td:nth-child(4):before {
+        position: absolute;
+        left: 3px;
+        font-weight: 600;
+        content: "Periode Review";
+    }
+
+    #faktur_pajak_non_cms_table td:nth-child(5) span {
+        justify-content: end;
+    }
+
+    .faktur_pajak > .tabcontent {
+        box-shadow: none;
+        border-radius: 0;
+        padding: 0;
+    }
+}
+*/

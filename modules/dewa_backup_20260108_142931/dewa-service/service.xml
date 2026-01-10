@@ -1,0 +1,1271 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.4.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_4_0.dtd">
+
+<service-builder package-path="com.astra.dewa">
+   <namespace>Dewa</namespace>
+
+   <!--<entity data-source="sampleDataSource" local-service="true" name="Foo" remote-service="false" session-factory="sampleSessionFactory" table="foo" tx-manager="sampleTransactionManager uuid="false"">-->
+
+   <!-- Master Data Begin -->
+   <entity data-source="dewaDataSource" local-service="true" name="Wilayah" remote-service="false" table="Wilayah" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- Other fields -->
+      <column name="Name" type="String"/>
+      <column name="SK" type="String"/>
+      <column name="Description" type="String"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="Boolean"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+   </entity>
+
+   <entity data-source="dewaDataSource" local-service="true" name="Cabang" remote-service="false" table="Cabang" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- Other fields -->
+      <column name="Name" type="String"/>
+      <column name="Description" type="String"/>
+
+      <!-- Audit fields -->
+      <column name="CreatedDate" type="Date"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+      <column name="RowStatus" type="Boolean"/>
+   </entity>
+
+   <entity data-source="dewaDataSource" local-service="true" name="Dealer" remote-service="false" table="Dealer" uuid="false" cache-enabled="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- FK fields -->
+      <column name="CabangId" type="int"/>
+      <column name="WilayahId" type="int"/>
+
+      <!-- Group instance -->
+      <column name="GroupDealer" type="int"/>
+
+      <!-- Other fields -->
+      <column name="Name" type="String"/>
+      <column name="Code" type="String"/>
+      <column name="KodeHo" type="String"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="Boolean"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+   </entity>
+
+   <entity data-source="dewaDataSource" local-service="true" name="Roles" remote-service="false" table="Roles" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- Other fields -->
+      <column name="Name" type="String"/>
+      <column name="Description" type="String"/>
+      <column name="RoleIdMember" type="String"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="Boolean"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+   </entity>
+   <!-- Master Data End -->
+
+
+   <!-- User Management Begin -->
+   <entity data-source="dewaDataSource" local-service="true" name="UsersDealers" remote-service="false" table="UsersDealers" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- FK fields -->
+      <column name="UserId" type="long"/>
+      <column name="DealerId" type="int"/>
+      <column name="RoleId" type="int"/>
+      <column name="PhotoFileId" type="long"/>
+
+      <!-- Other fields -->
+      <column name="ADB2CId" type="String"/>
+      <column name="userPrincipalName" type="String"/>
+      <column name="FullName" type="String"/>
+      <column name="UserEmail" type="String"/>
+      <column name="ApprovedDate" type="Date"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="Boolean"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+
+      <!-- Finder -->
+      <finder name="UsersDealersIdFromUserId" return-type="UsersDealers">
+         <finder-column name="UserId"/>
+         <finder-column name="RowStatus"/>
+      </finder>
+   </entity>
+
+   <entity data-source="dewaDataSource" name="UserRoleType" local-service="true" remote-service="false" table="UserRoleType" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" type="int" primary="true" id-type="identity"/>
+
+      <!-- FK fields -->
+      <column name="UserId" type="long"/>
+      <column name="RoleId" type="int"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="Boolean"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+   </entity>
+
+   <entity data-source="dewaDataSource" local-service="true" name="MenuAuthorization" remote-service="false" table="MenuAuthorization" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- Group instance -->
+      <column name="RoleId" type="int"/>
+
+      <!-- Other fields -->
+      <!-- list of menu id that can be accessed through the role -->
+      <column name="Menus" type="String"/>
+      <column name="IsRssp" type="boolean"/>
+      <column name="IsCmsDso" type="boolean"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="boolean"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+   </entity>
+   <!-- User Management End -->
+
+
+   <!-- Master Approval Begin -->
+   <entity data-source="dewaDataSource" local-service="true" name="MasterApproval" remote-service="false" table="master_approval" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- FK fields -->
+      <column name="RoleId" type="int"/>
+      <column name="MenuId" type="int"/>
+
+      <!-- Group instance -->
+      <column name="ApprovalGroup" type="String"/>
+      <column name="ApprovalWorkflow" type="boolean"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="Boolean"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+   </entity>
+
+   <entity data-source="dewaDataSource" local-service="true" name="MasterApprovalJournal" remote-service="false" table="master_approval_journal" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- FK fields -->
+      <column name="MasterApprovalId" type="int"/>
+      <column name="RoleId" type="int"/>
+      <column name="MenuId" type="int"/>
+
+      <!-- Group instance -->
+      <column name="ApprovalGroup" type="String"/>
+      <column name="ApprovalWorkflow" type="boolean"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="Boolean"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+   </entity>
+
+   <entity data-source="dewaDataSource" local-service="true" name="MasterApprovalDetail" remote-service="false" table="master_approval_detail" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- FK fields -->
+      <column name="MasterApprovalId" type="int"/>
+      <column name="UserId" type="long"/>
+
+      <!-- Other fields -->
+      <column name="ApprovalLevel" type="int"/>
+      <column name="IsDefault" type="boolean"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="Boolean"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+   </entity>
+
+   <entity data-source="dewaDataSource" local-service="true" name="MasterApprovalDetailJournal" remote-service="false" table="master_approval_detail_journal" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- FK fields -->
+      <column name="MasterApprovalId" type="int"/>
+      <column name="MasterApprovalJournalId" type="int"/>
+      <column name="MasterApprovalDetailId" type="int"/>
+      <column name="UserId" type="long"/>
+
+      <!-- Other fields -->
+      <column name="ApprovalLevel" type="int"/>
+      <column name="IsDefault" type="boolean"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="Boolean"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+   </entity>
+   <!-- Master Approval End -->
+
+
+   <!-- Kategori Dealer Begin -->
+   <entity data-source="dewaDataSource" local-service="true" name="KategoriDealer" remote-service="false" table="kategori_dealer" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="long"/>
+
+      <!-- Group instance -->
+      <column name="DealerId" type="int"/>
+
+      <!-- Other fields -->
+      <column name="Judul" type="String"/>
+      <column name="PeriodeReview" type="String"/>
+      <column name="Tahun" type="int"/>
+
+      <!-- Attachment -->
+      <column name="FileId" type="Long"/>
+      <column name="FileName" type="String"/>
+
+      <!-- Audit fields -->
+      <column name="rowStatus" type="boolean"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+   </entity>
+   <!-- Kategori Dealer End -->
+
+
+   <!-- Tipe Kendaraan Begin -->
+   <entity data-source="dewaDataSource" local-service="true" name="TipeKendaraan" remote-service="false" table="tipe_kendaraan" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- Other fields -->
+      <column name="Name" type="String"/>
+
+      <!-- Audit fields -->
+      <column name="CreatedDate" type="Date"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+      <column name="RowStatus" type="boolean"/>
+   </entity>
+   <!-- Tipe Kendaraan End -->
+
+
+   <entity data-source="dewaDataSource" local-service="true" name="Tahun" remote-service="false" table="tahun" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="String"/>
+      <!-- Other fields -->
+      <column name="Name" type="String"/>
+   </entity>
+   <entity data-source="dewaDataSource" local-service="true" name="Bulan" remote-service="false" table="bulan" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="String"/>
+      <!-- Other fields -->
+      <column name="Name" type="String"/>
+      <column name="SortIndex" type="Integer"/>
+   </entity>
+   <entity data-source="dewaDataSource" local-service="true" name="Kuartal" remote-service="false" table="kuartal" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="String"/>
+      <!-- Other fields -->
+      <column name="Name" type="String"/>
+   </entity>
+   <entity data-source="dewaDataSource" local-service="true" name="PeriodeReview" remote-service="false" table="periode_review" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="String"/>
+      <!-- Other fields -->
+      <column name="Name" type="String"/>
+   </entity>
+
+
+   <!-- Sales Begin -->
+   <entity data-source="dewaDataSource" local-service="true" name="SalesReport" remote-service="false" table="sales_report" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- FK fields -->
+      <column name="DealerId" type="int"/>
+
+      <!-- Attachment fields -->
+      <column name="FileId" type="Long"/>
+      <column name="FileName" type="String"/>
+      <column name="FilePath" type="String"/>
+
+      <!-- Other fields -->
+      <column name="Periode" type="Date"/>
+      <column name="Keterangan" type="String"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="boolean"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+   </entity>
+
+   <entity data-source="dewaDataSource" local-service="true" name="SalesProgram" remote-service="false" table="sales_program" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="long"/>
+
+      <!-- Other fields -->
+      <column name="Tahun" type="int"/>
+      <column name="Periode" type="String"/>
+
+      <!-- Attachment fields -->
+      <column name="FileId" type="Long"/>
+      <column name="FileName" type="String"/>
+
+      <!-- Audit fields -->
+      <column name="rowStatus" type="boolean"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+   </entity>
+   <!-- Sales End -->
+
+
+   <!-- Report Plafond Begin -->
+   <entity data-source="dewaDataSource" local-service="true" name="ReportPlafond" remote-service="false" table="report_plafond" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- FK fields -->
+      <column name="DealerId" type="int"/>
+
+      <!-- Attachment fields -->
+      <column name="FileId" type="Long"/>
+      <column name="FileName" type="String"/>
+      <column name="FilePath" type="String"/>
+
+      <!-- Other fields -->
+      <column name="Periode" type="Date"/>
+      <column name="Keterangan" type="String"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="boolean"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+   </entity>
+   <!-- Report Plafond End -->
+
+
+   <!-- Faktur Begin -->
+   <entity data-source="dewaDataSource" local-service="true" name="FakturPajak" remote-service="false" table="faktur_pajak" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- FK fields -->
+      <column name="DealerId" type="int"/>
+
+      <!-- Other fields -->
+      <column name="Keterangan" type="String"/>
+
+      <!-- Attachment fields -->
+      <column name="FileId" type="Long"/>
+      <column name="FileName" type="String"/>
+      <column name="FilePath" type="String"/>
+
+      <!-- Date fields -->
+      <column name="InvoiceDate" type="Date"/>
+      <column name="UploadDate" type="Date"/>
+
+      <!-- Audit fields -->
+      <column name="CreatedDate" type="Date"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+      <column name="RowStatus" type="boolean"/>
+   </entity>
+
+   <entity data-source="dewaDataSource" local-service="true" name="FakturIndirect" remote-service="false" table="faktur_indirect" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- FK fields -->
+      <column name="DealerId" type="int"/>
+
+      <!-- Other fields -->
+      <column name="Keterangan" type="String"/>
+      <column name="InvoiceDate" type="Date"/>
+      <column name="UploadDate" type="Date"/>
+
+      <!-- File fields -->
+      <column name="FileId" type="Long"/>
+      <column name="FileName" type="String"/>
+      <column name="FilePath" type="String"/>
+
+      <!-- Audit fields -->
+      <column name="CreatedDate" type="Date"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+      <column name="RowStatus" type="boolean"/>
+   </entity>
+   <!-- Faktur End -->
+
+
+   <!-- Realisasi Diskon Begin -->
+   <entity data-source="dewaDataSource" local-service="true" name="DiskonFakpol" remote-service="false" table="diskon_fakpol" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- FK fields -->
+      <column name="DealerId" type="int"/>
+
+      <!-- Other fields -->
+      <column name="Tahun" type="Integer"/>
+      <column name="Periode" type="String"/>
+      <column name="Keterangan" type="String"/>
+
+      <!-- File fields -->
+      <column name="FileId" type="Long"/>
+      <column name="FileName" type="String"/>
+      <column name="FilePath" type="String"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="boolean"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+   </entity>
+
+   <entity data-source="dewaDataSource" local-service="true" name="DiskonFleet" remote-service="false" table="diskon_fleet" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- Group instance -->
+      <column name="DealerId" type="int"/>
+
+      <!-- Other fields -->
+      <column name="Tahun" type="Integer"/>
+      <column name="Kuartal" type="String"/>
+      <column name="Keterangan" type="String"/>
+
+      <!-- File fields -->
+      <column name="FileId" type="Long"/>
+      <column name="FileName" type="String"/>
+      <column name="FilePath" type="String"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="boolean"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+   </entity>
+
+   <entity data-source="dewaDataSource" local-service="true" name="DiskonTestCar" remote-service="false" table="diskon_test_car" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- FK fields -->
+      <column name="DealerId" type="int"/>
+      <column name="KuartalId" type="String"/>
+      <column name="TipeKendaraanId" type="int"/>
+
+      <!-- Other fields -->
+      <column name="Tahun" type="Integer"/>
+      <column name="Keterangan" type="String"/>
+
+      <!-- Attachment fields -->
+      <column name="FileId" type="Long"/>
+      <column name="FileName" type="String"/>
+      <column name="FilePath" type="String"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="boolean"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+   </entity>
+
+   <entity data-source="dewaDataSource" local-service="true" name="DiskonOther" remote-service="false" table="diskon_others" uuid="false">
+      <!-- PK fields -->
+      <column name="diskonOtherId" primary="true" type="long" id-type="identity" />
+
+      <!-- Group instance -->
+      <column name="dealerId" type="int" />
+
+      <!-- Other fields -->
+      <column name="tahun" type="int" />
+      <column name="kuartalId" type="int" />
+      <column name="keterangan" type="String" />
+
+      <!-- File fields -->
+      <column name="fileId" type="long" />
+      <column name="fileName" type="String" />
+      <column name="filePath" type="String" />
+
+      <!-- Audit fields -->
+      <column name="rowStatus" type="boolean" />
+      <column name="createdDate" type="Date" />
+      <column name="createdBy" type="String" />
+      <column name="modifiedDate" type="Date" />
+      <column name="modifiedBy" type="String" />
+   </entity>
+   <!-- Realisasi Diskon End -->
+
+
+   <!-- SK Begin -->
+   <entity data-source="dewaDataSource" local-service="true" name="ESrut" remote-service="false" table="e_srut" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- Group instance -->
+      <column name="DealerId" type="int"/>
+
+      <!-- Attachment fields -->
+      <column name="FileId" type="Long"/>
+      <column name="FileName" type="String"/>
+      <column name="FilePath" type="String"/>
+
+      <!-- Date fields -->
+      <column name="PeriodDate" type="Date"/>
+      <column name="Keterangan" type="String"/>
+
+      <!-- Audit fields -->
+      <column name="CreatedDate" type="Date"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+      <column name="RowStatus" type="boolean"/>
+   </entity>
+
+   <entity data-source="dewaDataSource" local-service="true" name="SuratPenaltyStock" remote-service="false" table="surat_penalty_stock" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="long"/>
+
+      <!-- FK fields instance -->
+      <column name="DealerId" type="int"/>
+
+      <!-- Other fields -->
+      <column name="Judul" type="String"/>
+      <column name="Periode" type="String"/>
+      <column name="Tahun" type="int"/>
+
+      <!-- Attachment fields -->
+      <column name="FileId" type="Long"/>
+      <column name="FileName" type="String"/>
+
+      <!-- Audit fields -->
+      <column name="CreatedDate" type="Date"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+      <column name="RowStatus" type="Boolean"/>
+   </entity>
+
+   <entity data-source="dewaDataSource" local-service="true" name="SP3D" remote-service="false" table="sp3d" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- FK fields -->
+      <column name="DealerId" type="int"/>
+
+      <!-- Other fields -->
+      <column name="Tahun" type="Integer"/>
+      <column name="Bulan" type="String"/>
+
+      <!-- Attachment fields -->
+      <column name="FileId" type="Long"/>
+      <column name="FileName" type="String"/>
+      <column name="FilePath" type="String"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="Boolean"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+   </entity>
+
+   <entity data-source="dewaDataSource" local-service="true" name="SkIris" remote-service="false" table="sk_iris" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- FK fields -->
+      <column name="Periode" type="String"/>
+      <column name="DealerId" type="int"/>
+      <column name="WilayahId" type="long"/>
+
+      <!-- Other fields -->
+      <column name="Tahun" type="Integer"/>
+      <column name="Kategori" type="String"/>
+
+      <!-- Attachment fields -->
+      <column name="FileId" type="Long"/>
+      <column name="FileName" type="String"/>
+      <column name="FilePath" type="String"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="Boolean"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+   </entity>
+   <!-- SK End -->
+
+
+   <!-- Ticket Begin -->
+   <entity data-source="dewaDataSource" local-service="true" name="Ticket" remote-service="false" table="ticket" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="String"/>
+
+      <!-- Group instance -->
+      <column name="DealerCode" type="String"/>
+
+      <!-- Other fields -->
+      <column name="TicketDate" type="Date"/>
+      <column name="TicketNumber" type="String"/>
+      <column name="RequestName" type="String"/>
+      <column name="FirstApprover" type="String"/>
+      <column name="Email" type="String"/>
+      <column name="EmailCc" type="String"/>
+      <column name="Phone" type="String"/>
+      <column name="RequestCategory" type="String"/>
+      <column name="RequestDescription" type="String"/>
+      <column name="BussinesBenefit" type="String"/>
+      <column name="NameFile" type="String"/>
+      <column name="PathFile" type="String"/>
+
+      <!-- Audit fields -->
+      <column name="CreatedDate" type="Date"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+   </entity>
+   <!-- Ticket End -->
+
+
+   <!--Training Begin -->
+   <entity data-source="dewaDataSource" local-service="true" name="JenisMateri" remote-service="false" table="jenis_materi" uuid="false" cache-enabled="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- Other fields -->
+      <column name="Name" type="String"/>
+
+      <!-- Attachment fields -->
+      <column name="ImageId" type="Long"/>
+      <column name="ImageName" type="String"/>
+      <column name="ImagePath" type="String"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="Boolean"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+   </entity>
+
+   <entity data-source="dewaDataSource" local-service="true" name="TopikMateri" remote-service="false" table="topik_materi" uuid="false" cache-enabled="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- Other fields -->
+      <column name="Name" type="String"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="Boolean"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+   </entity>
+
+   <entity data-source="dewaDataSource" local-service="true" name="TrainingMateri" remote-service="false" table="training_materi" uuid="false" cache-enabled="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- FK fields -->
+      <column name="JenisMateriId" type="int"/>
+      <column name="TopikMateriId" type="int"/>
+
+      <!-- Other fields -->
+      <column name="JudulMateri" type="String"/>
+
+      <!-- Attachment fields -->
+      <column name="ImageId" type="Long"/>
+      <column name="ImageName" type="String"/>
+      <column name="ImagePath" type="String"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="Boolean"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+   </entity>
+
+   <entity data-source="dewaDataSource" local-service="true" name="TrainingMateriLampiran" remote-service="false" table="training_materi_lampiran" uuid="false" cache-enabled="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- FK fields -->
+      <column name="TrainingMateriId" type="int"/>
+
+      <!-- Attachment fields -->
+      <column name="FileId" type="Long"/>
+      <column name="FileName" type="String"/>
+      <column name="FilePath" type="String"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="Boolean"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+   </entity>
+
+   <entity data-source="dewaDataSource" local-service="true" name="TrainingAgenda" remote-service="false" table="training_agenda" uuid="false" cache-enabled="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- Other fields -->
+      <column name="JenisAgenda" type="int"/>
+      <column name="StatusAgenda" type="int"/>
+
+      <!-- Other fields -->
+      <column name="Judul" type="String"/>
+      <column name="Location" type="String"/>
+      <column name="LinkMeeting" type="String"/>
+      <column name="Deskripsi" type="String"/>
+
+      <!-- Date fields -->
+      <column name="StartDate" type="Date"/>
+      <column name="StartDateHours" type="String"/>
+      <column name="EndDate" type="Date"/>
+      <column name="EndDateHours" type="String"/>
+      <column name="RegistrationLimitDate" type="Date"/>
+      <column name="RegistrationLimitDateHours" type="String"/>
+
+      <!-- Attachment fields -->
+      <column name="ImageId" type="Long"/>
+      <column name="ImageName" type="String"/>
+      <column name="ImagePath" type="String"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="Boolean"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+   </entity>
+
+   <entity data-source="dewaDataSource" local-service="true" name="TrainingAgendaParticipant" remote-service="false" table="training_agenda_participant" uuid="false" cache-enabled="">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- Group instance -->
+      <column name="TrainingAgendaId" type="int"/>
+      <column name="DealerId" type="int"/>
+
+      <!-- Other fields -->
+      <column name="FullName" type="String"/>
+      <column name="Email" type="String"/>
+      <column name="Phone" type="String"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="Boolean"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+   </entity>
+
+   <entity data-source="dewaDataSource" local-service="true" name="TrainingAgendaParticipantUf" remote-service="false" table="training_agenda_participant_uf" uuid="false" cache-enabled="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- FK fields -->
+      <column name="TrainingAgendaId" type="int"/>
+      <column name="DealerId" type="int"/>
+
+      <!-- Attachment fields -->
+      <column name="FileId" type="Long"/>
+      <column name="FileName" type="String"/>
+      <column name="FilePath" type="String"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="Boolean"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+   </entity>
+   <!-- Training End -->
+
+
+   <!-- Calendar Event Start -->
+   <entity data-source="dewaDataSource" local-service="true" name="CalenderEvent" remote-service="false" table="calender_event" uuid="false" cache-enabled="false">
+      <!-- PK fields -->
+      <column name="Id" type="int" primary="true" id-type="identity"/>
+
+      <!-- Group instance -->
+      <column name="JenisAcara" type="int"/>
+      <column name="StatusAcara" type="int"/>
+
+      <!-- Other fields -->
+      <column name="Judul" type="String"/>
+      <column name="Location" type="String"/>
+      <column name="LinkMeeting" type="String"/>
+      <column name="StartDate" type="Date"/>
+      <column name="StartDateHours" type="String"/>
+      <column name="EndDate" type="Date"/>
+      <column name="EndDateHours" type="String"/>
+      <column name="RegistrationLimitDate" type="Date"/>
+      <column name="RegistrationLimitDateHours" type="String"/>
+      <column name="Deskripsi" type="String"/>
+      <column name="ImageId" type="Long"/>
+      <column name="ImageName" type="String"/>
+      <column name="ImagePath" type="String"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="Boolean"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+   </entity>
+
+   <entity data-source="dewaDataSource" local-service="true" name="CalenderEventParticipant" remote-service="false" table="calender_event_participant" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- Group instance -->
+      <column name="CalenderEventId" type="int"/>
+      <column name="DealerId" type="int"/>
+
+      <!-- Other fields -->
+      <column name="FullName" type="String"/>
+      <column name="Email" type="String"/>
+      <column name="Phone" type="String"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="Boolean"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+   </entity>
+   <!-- Calendar Event End -->
+
+
+   <!-- Common and Setting Start -->
+   <entity data-source="dewaDataSource" local-service="true" name="Common" remote-service="false" table="common" uuid="false">
+      <column name="CommonKey" type="String" primary="true"/>
+      <column name="CommonCode" type="String"/>
+      <column name="CommonDesc1" type="String"/>
+      <column name="CommonDesc2" type="String"/>
+      <column name="CommonDesc3" type="String"/>
+      <column name="CommonDesc4" type="String"/>
+      <column name="CommonDesc5" type="String"/>
+      <column name="Sequence" type="int"/>
+
+      <!-- Audit fields -->
+      <column name="IsActive" type="boolean"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+   </entity>
+
+   <entity data-source="dewaDataSource" local-service="true" cache-enabled="false" name="Setting" remote-service="false" table="Setting" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <column name="KeySetting" type="String"/>
+      <column name="Code" type="String"/>
+      <column name="Value" type="String"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="Boolean"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+
+      <!-- Finder -->
+      <finder name="MailKey" return-type="Collection">
+         <finder-column name="KeySetting"/>
+      </finder>
+
+      <finder name="FindCredential" return-type="Setting">
+         <finder-column name="KeySetting"/>
+         <finder-column name="Code"/>
+      </finder>
+   </entity>
+   <!-- Common and Setting End -->
+
+
+   <!-- Revisi Database Begin -->
+   <entity data-source="dewaDataSource" local-service="true" name="Application" remote-service="false" table="Application" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- Other fields -->
+      <column name="Name" type="String"/>
+      <column name="Description" type="String"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="Boolean"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+   </entity>
+
+   <entity data-source="dewaDataSource" local-service="true" name="ApplicationCategory" remote-service="false" table="ApplicationCategory" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- Other fields -->
+      <column name="Name" type="String"/>
+      <column name="Description" type="String"/>
+      <column name="CategoryBonus" type="Integer"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="Boolean"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+   </entity>
+
+   <entity data-source="dewaDataSource" local-service="true" name="ApplicationAssignStatus" remote-service="false" table="ApplicationAssignStatus" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- Other fields -->
+      <column name="Name" type="String"/>
+      <column name="Description" type="String"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="Boolean"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+   </entity>
+
+   <entity data-source="dewaDataSource" local-service="true" name="ApplicationHeaderStatus" remote-service="false" table="ApplicationHeaderStatus" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- Other fields -->
+      <column name="Name" type="String"/>
+      <column name="Description" type="String"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="Boolean"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+   </entity>
+
+   <entity data-source="dewaDataSource" local-service="true" cache-enabled="false" name="ApplicationHeader" remote-service="false" table="ApplicationHeader" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- Group instance -->
+      <column name="ApplicationId" type="int"/>
+      <column name="ApplicationHeaderStatusId" type="int"/>
+      <column name="ApplicationCategoryId" type="int"/>
+      <column name="DealerId" type="int"/>
+
+      <!-- Other fields -->
+      <column name="TicketNo" type="String"/>
+      <column name="TicketCode" type="String"/>
+      <column name="ReqDate" type="Date"/>
+      <column name="ReqYear" type="Integer"/>
+      <column name="ReqMonth" type="Integer"/>
+      <column name="ReqScreenName" type="String"/>
+      <column name="ReqName" type="String"/>
+      <column name="ReqEmail" type="String"/>
+      <column name="ReqCCEmail" type="String"/>
+      <column name="ReqPhone" type="String"/>
+      <column name="NominalPengajuan" type="Integer"/>
+      <column name="ReqDesc" type="String"/>
+      <column name="BusinessBenefit" type="String"/>
+      <column name="FileId" type="Long"/>
+      <column name="FileName" type="String"/>
+      <column name="FileUrl" type="String"/>
+      <column name="Notes" type="String"/>
+      <column name="NotesHistory" type="String"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="Boolean"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+   </entity>
+
+   <entity data-source="dewaDataSource" local-service="true" cache-enabled="false" name="ApplicationHeaderJournal" remote-service="false" table="ApplicationHeaderJournal" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- Group instance -->
+      <column name="ApplicationHeaderId" type="int"/>
+      <column name="ApplicationId" type="int"/>
+      <column name="ApplicationHeaderStatusId" type="int"/>
+      <column name="ApplicationCategoryId" type="int"/>
+      <column name="DealerId" type="int"/>
+
+      <!-- Other fields -->
+      <column name="TicketNo" type="String"/>
+      <column name="TicketCode" type="String"/>
+      <column name="ReqDate" type="Date"/>
+      <column name="ReqYear" type="Integer"/>
+      <column name="ReqMonth" type="Integer"/>
+      <column name="ReqScreenName" type="String"/>
+      <column name="ReqName" type="String"/>
+      <column name="ReqEmail" type="String"/>
+      <column name="ReqCCEmail" type="String"/>
+      <column name="ReqPhone" type="String"/>
+      <column name="NominalPengajuan" type="Integer"/>
+      <column name="ReqDesc" type="String"/>
+      <column name="BusinessBenefit" type="String"/>
+      <column name="FileId" type="Long"/>
+      <column name="FileName" type="String"/>
+      <column name="FileUrl" type="String"/>
+      <column name="Notes" type="String"/>
+      <column name="NotesHistory" type="String"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="Boolean"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+   </entity>
+
+   <entity data-source="dewaDataSource" local-service="true" cache-enabled="false" name="ApplicationAssign" remote-service="false" table="ApplicationAssign" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- Group instance -->
+      <column name="ApplicationHeaderId" type="int"/>
+      <column name="ApplicationAssignStatusId" type="int"/>
+      <column name="ProfileId" type="long"/>
+
+      <!-- Other fields -->
+      <column name="StartDateOn" type="Date"/>
+      <column name="CompletedDateOn" type="Date"/>
+      <column name="Notes" type="String"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="Boolean"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+   </entity>
+
+   <entity data-source="dewaDataSource" local-service="true" cache-enabled="false" name="ApplicationAssignJournal" remote-service="false" table="ApplicationAssignJournal" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- Group instance -->
+      <column name="ApplicationAssignId" type="int"/>
+      <column name="ApplicationHeaderId" type="int"/>
+      <column name="ApplicationAssignStatusId" type="int"/>
+      <column name="ProfileId" type="long"/>
+
+      <!-- Other fields -->
+      <column name="StartDateOn" type="Date"/>
+      <column name="CompletedDateOn" type="Date"/>
+      <column name="Notes" type="String"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="Boolean"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+   </entity>
+   <!-- Revisi Database End -->
+
+
+   <!-- Banner Begin -->
+   <entity data-source="dewaDataSource" local-service="true" cache-enabled="false" name="Banner" remote-service="false" table="Banner" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- Other fields -->
+      <column name="IsShow" type="Boolean"/>
+
+      <!-- Attachment fields -->
+      <column name="FileId" type="Long"/>
+      <column name="FileName" type="String"/>
+      <column name="FilePath" type="String"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="Boolean"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+   </entity>
+   <!-- Banner End -->
+
+
+   <!-- Email Domain Start -->
+   <entity data-source="dewaDataSource" local-service="true" cache-enabled="false" name="EmailDomain" remote-service="false" table="email_domain" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- Other fields -->
+      <column name="DomainName" type="String"/>
+      <column name="Category" type="String"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="boolean"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+   </entity>
+   <!-- Email Domain End -->
+
+
+   <!-- Token Begin -->
+   <entity data-source="dewaDataSource" local-service="true" cache-enabled="false" name="Token" remote-service="false" table="Token" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+      <column name="TokenNumber" type="String"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="ExpiredDate" type="Date"/>
+   </entity>
+   <!-- Token End -->
+
+
+   <!-- OTP Begin -->
+   <entity data-source="dewaDataSource" local-service="true" cache-enabled="false" name="OTP" remote-service="false" table="OTP" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+      <column name="OTPNumber" type="int"/>
+      <column name="EmailNewUser" type="String"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="ExpiredDate" type="Date"/>
+      <column name="IsVerified" type="boolean"/>
+   </entity>
+   <!-- OTP End -->
+
+
+   <!-- Register Application Begin -->
+   <entity data-source="dewaDataSource" local-service="true" cache-enabled="false" name="ApprovalHeaderUser" remote-service="false" table="ApprovalHeaderUser" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- FK fields -->
+      <column name="ApplicationAssignStatusId" type="int"/>
+      <column name="ApproverUserId" type="long"/>
+      <column name="DealerId" type="int"/>
+      <column name="CabangId" type="int"/>
+
+      <!-- Requester fields -->
+      <column name="RequesterName" type="String"/>
+      <column name="RequesterEmail" type="String"/>
+
+      <!-- Other fields -->
+      <column name="RejectReason" type="String"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="Boolean"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+   </entity>
+
+   <entity data-source="dewaDataSource" local-service="true" cache-enabled="false" name="ApprovalHistoryUser" remote-service="false" table="ApprovalHistoryUser" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- FK fields -->
+      <column name="ApprovalHeaderUserId" type="int"/>
+      <column name="ApplicationAssignStatusId" type="int"/>
+      <column name="ApproverUserId" type="long"/>
+      <column name="DealerId" type="int"/>
+      <column name="CabangId" type="int"/>
+
+      <!-- Requester fields -->
+      <column name="RequesterName" type="String"/>
+      <column name="RequesterEmail" type="String"/>
+
+      <!-- Other fields -->
+      <column name="RejectReason" type="String"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="Boolean"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+   </entity>
+
+   <entity data-source="dewaDataSource" local-service="true" cache-enabled="false" name="ApprovalDetailUser" remote-service="false" table="ApprovalDetailUser" uuid="false">
+      <!-- PK fields -->
+      <column name="Id" primary="true" type="int" id-type="identity"/>
+
+      <!-- FK fields -->
+      <column name="ApprovalHeaderUserId" type="int"/>
+      <column name="RoleId" type="int"/>
+
+      <!-- Audit fields -->
+      <column name="RowStatus" type="Boolean"/>
+      <column name="CreatedBy" type="String"/>
+      <column name="CreatedDate" type="Date"/>
+      <column name="ModifiedBy" type="String"/>
+      <column name="ModifiedDate" type="Date"/>
+
+      <finder name="FindDetailUser" return-type="ApprovalDetailUser">
+         <finder-column name="ApprovalHeaderUserId"/>
+         <finder-column name="RowStatus"/>
+      </finder>
+   </entity>
+   <!-- Register Application End -->
+
+</service-builder>

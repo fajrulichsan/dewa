@@ -1,0 +1,8 @@
+Bundle-Name: dewa-service
+Bundle-SymbolicName: com.astra.dewa.service
+Bundle-Version: 1.0.0
+Liferay-Require-SchemaVersion: 1.0.0
+Liferay-Service: true
+-dsannotations-options: inherit
+-spring: \
+	META-INF/spring/ext-spring.xml

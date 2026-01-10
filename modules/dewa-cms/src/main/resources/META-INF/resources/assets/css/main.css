@@ -1,0 +1,393 @@
+
+.cms-content{
+    margin: 25px;
+}
+.cms-content > .tabcontent{
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.42);
+    border-radius: 10px ;
+    padding: 0.75em;
+}
+
+.cms-content > .tabcontent > .nav.nav-tabs{
+    margin: 25px;
+    border-bottom: 3px solid #DBEDFF;
+}
+
+.cms-content > .tabcontent > .tab-content{
+    margin: 25px;
+}
+
+.nav-item{
+    width: 165px;
+    text-align: center;
+    border: 0px;
+}
+
+.nav > li > a{
+    color: #95B6DF;
+}
+
+
+.nav-tabs > li.nav-item.active > a{
+    border: 0px;
+    border-bottom: 4px solid #014689;
+    color: #014689;
+}
+
+#role_table tbody > tr {
+    border-left: 1px solid  #DCDFE3;
+    border-right: 1px solid  #DCDFE3;
+}
+
+table#role_table,
+table#docflow_table {
+    border: 1px solid #DCDFE3;
+}
+
+#role_table thead,
+#docflow_table thead{
+    background-color: #F6F6F6;
+    border-radius: 9px;
+    border: 1px solid #DCDFE3;
+}
+.dataTable > thead > tr > th {
+    border: 1px solid #DCDFE3; !important;
+    width: 100%; !important;
+}
+
+#docflow_table > thead > tr > th {
+    background-color: #F6F6F6;
+    border: 1px solid #DCDFE3;
+}
+
+#role_table tbody tr,
+#docflow_table tbody tr{
+    border: 1px solid #DCDFE3;
+}
+
+
+
+div#role_table_wrapper > div.row > div.col-sm-5 {
+    display: none;
+}
+
+div#role_table_wrapper > div.row > div.col-sm-7,
+div#docflow_table_wrapper > div.row > div.col-sm-7{
+    width: 100%;
+}
+
+div.dataTables_wrapper div.dataTables_paginate {
+    text-align: center;
+}
+.pagination{
+    alignment: center;
+}
+ul.pagination > li > a {
+    border: 0px;
+}
+
+li.paginate_button.active > a{
+    border-radius: 10px ;
+    background-color: #10569C;
+}
+
+#role_table_filter > label > input,
+#docflow_table_filter > label > input{
+    background-image: url(/o/com.astra.dewa.cms/assets/img/search.svg);
+    background-position: 10px 8px;
+    background-repeat: no-repeat;
+    padding: 5px 20px 5px 40px;
+}
+
+.btn_table , .btn_table:hover{
+    border: 0px ;
+    background-color: #014689;
+    color: white;
+}
+
+/* slide button */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 56px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 32px;
+    width: 32px;
+    bottom: -6px;
+    background-color: #95B6DF;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border: 2px solid white;
+}
+
+input:checked + .slider {
+    background-color: #014689;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #014689;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.approver-button .btn-secondary {
+    background-color: #DEEFFF;
+    color: #014689;
+    font-weight: bold;
+}
+
+.approver-button .btn {
+    border: 0px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    border-radius: 20px;
+    height: 40px;
+}
+
+.ipr-color-blue-old{
+    color: #014689;
+}
+
+.btn-ipr{
+    background: #014689;
+    border: 1px solid #014689;
+    color: white;
+    height: 40px;
+    width: 150px;
+    border-radius: 5px;
+}
+.btn-ipr:hover,
+.btn-ipr-cancel:hover{
+    background: #DEEFFF;
+    color: #014689 ;
+}
+
+.btn-ipr-cancel{
+    background: white;
+    border: 1px solid #014689;
+    color: #014689;
+    height: 40px;
+    width: 150px;
+    border-radius: 5px;
+}
+
+.mrg-btm-docflow{
+    margin-bottom: 15px;
+}
+
+.btn-plus{
+    border: 0px;
+    background: white;
+    color: #014689;
+}
+
+.dpn{
+    display: none;
+}
+
+.cms-content > .tabcontent > .nav.nav-tabs > li {
+    margin-bottom: -4px;
+}
+
+span.color-fr {
+    color: red;
+}
+
+
+/*Search*/
+label.control-label, label.title-form {
+    color: #014689;
+}
+
+.form-group > input.form-control,
+.form-group > textarea.form-control,
+.form-group > select.form-control {
+    border: 1px solid #DBEDFF;
+}
+
+select:invalid {
+    color: gray;
+!important;
+}
+
+option {
+    color: black;
+}
+
+.bootstrap-select .dropdown-toggle {
+    border: 2px solid #DBEDFF;
+    color: #333;
+}
+
+.custom-group {
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+.custom-group input {
+    padding: 20px 40px 20px 18px;
+}
+
+.custom-group button {
+    background: none;
+    border: none;
+    outline: none;
+    color: #10569C;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    font-size: 18px;
+    transform: translateY(-50%);
+}
+
+.custom-group button:disabled {
+    cursor: not-allowed;
+}
+
+.custom-group button:hover {
+    color: #73aee9;
+}
+
+.form-group {
+    margin-bottom: 30px !important;
+}
+
+.form-control {
+    height: 40px;
+    border: 2px solid #DBEDFF;
+}
+
+.form-control:focus {
+    border: 2px solid #DBEDFF;
+}
+
+.search-item {
+    padding: 8px 16px;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    gap: 20px;
+}
+
+.search-item:hover{
+    background-color: #f0f0f0;
+}
+
+.search-image {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border: 1px solid #d5d5d5;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.search-image > img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+.search-container {
+    position: relative;
+}
+
+.search-result {
+    display: none;
+    position: absolute;
+    z-index: 15;
+    background-color: #FFFFFF;
+    top: calc(100% + 5px);
+    width: 100%;
+    padding: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 5px 6px rgba(0,0,0,0.25);
+}
+
+.search-title {
+    font-size: 16px;
+}
+
+.search-subtitle {
+    font-size: 14px;
+    color: #999;
+}
+
+.search-list {
+    max-height: 295px;
+    overflow-y: auto;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.search-item.loading .search-image {
+    border: none;
+    animation : shimmer 3s infinite;
+    background: linear-gradient(to right, #eff1f3 4%, #e2e2e2 25%, #eff1f3 36%);
+    background-size: 1000px 100%;
+}
+
+.search-item.loading .search-title {
+    height: 19px;
+    width: 30%;
+    animation : shimmer 3s infinite;
+    background: linear-gradient(to right, #eff1f3 4%, #e2e2e2 25%, #eff1f3 36%);
+    background-size: 1000px 100%;
+}
+
+.search-item.loading .search-subtitle {
+    margin-top: 9px;
+    height: 12px;
+    width: 30%;
+    animation : shimmer 3s infinite;
+    background: linear-gradient(to right, #eff1f3 4%, #e2e2e2 25%, #eff1f3 36%);
+    background-size: 1000px 100%;
+}
+
+.search-item.loading .search-info {
+    width: 100%;
+}

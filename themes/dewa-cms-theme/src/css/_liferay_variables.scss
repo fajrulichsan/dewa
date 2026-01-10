@@ -1,0 +1,36 @@
+// Define state variables first if not already defined
+$state-success-text: #3c763d !default;
+$state-success-bg: #dff0d8 !default;
+$state-success-border: darken($state-success-bg, 5%) !default;
+
+$state-info-text: #31708f !default;
+$state-info-bg: #d9edf7 !default;
+$state-info-border: darken($state-info-bg, 7%) !default;
+
+$state-warning-text: #8a6d3b !default;
+$state-warning-bg: #fcf8e3 !default;
+$state-warning-border: darken($state-warning-bg, 5%) !default;
+
+$state-danger-text: #a94442 !default;
+$state-danger-bg: #f2dede !default;
+$state-danger-border: darken($state-danger-bg, 5%) !default;
+
+$gray: #999 !default;
+
+$status-approved-border: $state-success-border !default;
+$status-approved-text: $state-success-text !default;
+
+$status-denied-border: $state-danger-border !default;
+$status-denied-text: $state-danger-text !default;
+
+$status-draft-border: $gray !default;
+$status-draft-text: $status-draft-border !default;
+
+$status-expired-border: $state-warning-border !default;
+$status-expired-text: $state-warning-text !default;
+
+$status-pending-border: $state-info-border !default;
+$status-pending-text: $state-info-text !default;
+
+$status-scheduled-border: $state-info-bg !default;
+$status-scheduled-text: $state-info-text !default;
