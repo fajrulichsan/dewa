@@ -2,7 +2,7 @@
     "private": true,
     "workspaces": {
         "packages": [
-            "themes\\dewa-cms-theme"
+            "themes/dewa-cms-theme"
         ]
     },
     "dependencies": {

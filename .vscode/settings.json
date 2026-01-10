@@ -1,0 +1,9 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^sudo killall -9 mysqld_safe$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "../../gradlew": true
+    }
+}
