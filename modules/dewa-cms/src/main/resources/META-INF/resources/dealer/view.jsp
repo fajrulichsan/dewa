@@ -129,8 +129,8 @@
 		"paginate": {
 			"first": "",
 			"last": "",
-			"next": '<span class="glyphicon glyphicon-menu-right"></span>',
-			"previous": '<span class="glyphicon glyphicon-menu-left"></span>'
+			"next": '<i class="fas fa-chevron-right"></i>',
+			"previous": '<i class="fas fa-chevron-left"></i>'
 		},
 		"search": "",
 		searchPlaceholder: "Search..."
@@ -199,6 +199,10 @@
 
 				// $('.dataTables_filter').append($searchButton);
 				$('.dataTables_filter').prepend('<a href="${dealerEditURL}&id=0" class="btn btn-info btn_table"><span><i class="fas fa-plus" style="margin-right: 10px"></i> Tambah </span></a>');
+				
+				// Ubah col-md-6 menjadi col-md-1 dan col-md-11
+				$('#dealer_table_wrapper .row:first .col-sm-6:first').removeClass('col-sm-6').addClass('col-sm-1 col-md-1');
+				$('#dealer_table_wrapper .row:first .col-sm-6:last').removeClass('col-sm-6').addClass('col-sm-11 col-md-11');
 			}
 		});
 	}

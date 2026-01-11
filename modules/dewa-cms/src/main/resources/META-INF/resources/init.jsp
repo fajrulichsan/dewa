@@ -11,6 +11,8 @@
 <liferay-theme:defineObjects/>
 <portlet:defineObjects/>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
 <link href="<%=request.getContextPath()%>/assets/css/bootstrap-wizard.css" rel="stylesheet" type="text/css"/>
 <script src="<%=request.getContextPath()%>/assets/js/moment-with-locales.min.js"></script>
 
@@ -54,6 +56,131 @@
 
   .bootstrap-select .dropdown-toggle {
     border: 2px solid #DBEDFF;
+  }
+
+  /* DataTables Sorting Icons with FontAwesome */
+  table.dataTable thead .sorting:before,
+  table.dataTable thead .sorting_asc:before,
+  table.dataTable thead .sorting_desc:before {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  table.dataTable thead .sorting:before {
+    content: "\f0dc";
+    opacity: 0.3;
+  }
+
+  table.dataTable thead .sorting_asc:before {
+    content: "\f0de";
+    opacity: 1;
+  }
+
+  table.dataTable thead .sorting_desc:before {
+    content: "\f0dd";
+    opacity: 1;
+  }
+
+  table.dataTable thead th {
+    position: relative;
+    padding-right: 30px;
+  }
+
+  /* DataTables Blue Header */
+  table.dataTable thead th {
+    background-color: #014689 !important;
+    color: white !important;
+  }
+
+  /* DataTables Pagination Style */
+  .dataTables_wrapper .dataTables_paginate {
+    padding-top: 15px;
+    text-align: center !important;
+  }
+
+  .dataTables_wrapper .dataTables_paginate .paginate_button {
+    border: none !important;
+    background: transparent !important;
+    margin: 0 3px !important;
+    border-radius: 5px !important;
+    transition: background-color 0.3s ease;
+    padding: 5px !important;
+    color: #333 !important;
+    box-shadow: none !important;
+  }
+
+  ul.pagination > li > a {
+    color: #014689;
+  }
+
+  li.paginate_button.active > a {
+    border-radius: 10px;
+    background-color: #10569C;
+    padding: 6px 12px;
+    color: white;
+  }
+
+  .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+  .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover,
+  .dataTables_wrapper .dataTables_paginate .paginate_button.current:focus {
+    background-color: #014689 !important;
+    background: #014689 !important;
+    color: #ffffff !important;
+    border: none !important;
+  }
+
+  .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background: #e9ecef !important;
+    color: #333 !important;
+    border: none !important;
+  }
+
+  .dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
+  .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover,
+  .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:focus {
+    color: #ccc !important;
+    background: transparent !important;
+    cursor: default !important;
+  }
+
+  /* Panah next/previous - aktif warna theme, disabled warna abu */
+  .dataTables_wrapper .dataTables_paginate .paginate_button.previous:not(.disabled) i,
+  .dataTables_wrapper .dataTables_paginate .paginate_button.next:not(.disabled) i {
+    color: #014689 !important;
+  }
+
+  .dataTables_wrapper .dataTables_paginate .paginate_button.previous.disabled i,
+  .dataTables_wrapper .dataTables_paginate .paginate_button.next.disabled i {
+    color: #ccc !important;
+  }
+
+  .dataTables_wrapper .dataTables_paginate .paginate_button.previous,
+  .dataTables_wrapper .dataTables_paginate .paginate_button.next {
+    border: none !important;
+    border-radius: 5px !important;
+  }
+
+  .dataTables_wrapper .dataTables_paginate .paginate_button.first,
+  .dataTables_wrapper .dataTables_paginate .paginate_button.last {
+    display: none !important;
+  }
+
+  /* Matikan icon sorting default DataTables */
+  table.dataTable thead .sorting:after,
+  table.dataTable thead .sorting_asc:after,
+  table.dataTable thead .sorting_desc:after,
+  table.dataTable thead .sorting_asc_disabled:after,
+  table.dataTable thead .sorting_desc_disabled:after {
+    display: none !important;
+  }
+
+  /* Select2 - matikan overflow hidden */
+  .select2-container .select2-selection--single .select2-selection__rendered {
+    overflow: visible !important;
   }
 
   .bootstrap-select span.caret {

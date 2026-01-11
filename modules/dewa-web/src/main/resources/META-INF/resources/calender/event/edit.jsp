@@ -30,6 +30,47 @@
     #editor-container {
         height: 375px;
     }
+
+    /* Date Picker Styling Fix for Liferay 7.4 */
+    .dateIcon {
+        background-color: #ffffff !important;
+        color: #333333 !important;
+        cursor: pointer !important;
+        padding: 8px 12px !important;
+        height: auto !important;
+    }
+
+    .dateIcon:focus {
+        border-color: #014689 !important;
+        outline: none !important;
+    }
+
+    /* Bootstrap DateTimePicker Dropdown Fix */
+    .bootstrap-datetimepicker-widget {
+        z-index: 10000 !important;
+    }
+
+    .bootstrap-datetimepicker-widget table td,
+    .bootstrap-datetimepicker-widget table th {
+        border-radius: 4px;
+    }
+
+    .bootstrap-datetimepicker-widget table td.active,
+    .bootstrap-datetimepicker-widget table td.active:hover {
+        background-color: #014689 !important;
+        color: #ffffff !important;
+        text-shadow: none;
+    }
+
+    .bootstrap-datetimepicker-widget table td.today:before {
+        border-bottom-color: #014689 !important;
+    }
+
+    .bootstrap-datetimepicker-widget .timepicker-hour,
+    .bootstrap-datetimepicker-widget .timepicker-minute,
+    .bootstrap-datetimepicker-widget .timepicker-second {
+        color: #333333 !important;
+    }
 </style>
 
 <form data-toggle="validator" role="form" id="formCalenderEvent" method="post" enctype="multipart/form-data" novalidate autocomplete="off">
@@ -88,7 +129,7 @@
                      Tanggal Mulai
                      <span style="color: red;">*</span>
                   </label>
-                  <input type='text' class="form-control dateIcon required" name='startDate' id='startDate' style="margin-top: 15px;font-size: 15px;border: 1px solid gray;background: white;color: black;" readonly/>
+                  <input type='text' class="form-control dateIcon required" name='startDate' id='startDate' placeholder="Pilih Tanggal" readonly/>
                </div>
             </div>
             <div class="col-lg-4">
@@ -97,7 +138,7 @@
                      Tanggal Berakhir
                      <span style="color: red;">*</span>
                   </label>
-                  <input type='text' class="form-control dateIcon required" name='endDate' id='endDate' style="margin-top: 15px;font-size: 15px;border: 1px solid gray;background: white;color: black;" readonly/>
+                  <input type='text' class="form-control dateIcon required" name='endDate' id='endDate' placeholder="Pilih Tanggal" readonly/>
                </div>
             </div>
             <div class="col-lg-4">
@@ -106,7 +147,7 @@
                      Batas Pendaftaran
                      <%--<span style="color: red;">*</span>--%>
                   </label>
-                  <input type='text' class="form-control dateIcon required" name='registrationDate' id='registrationDate' style="margin-top: 15px;font-size: 15px;border: 1px solid gray;background: white;color: black;" readonly/>
+                  <input type='text' class="form-control dateIcon required" name='registrationDate' id='registrationDate' placeholder="Pilih Tanggal" readonly/>
                </div>
             </div>
          </div>

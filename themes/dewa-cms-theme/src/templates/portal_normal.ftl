@@ -366,12 +366,12 @@
             </div>
         </nav>
 
-        <main class="page-content pt-2">
+        <main class="page-content">
             <div id="overlay" class="overlay"></div>
-            <div class="container-fluid p-5">
+            <div class="container-fluid">
                 <section id="content">
                     <div class="row" style="margin-left: 0px!important; margin-right: 0px!important;">
-                        <div class="col-sm-12 col-xs-12 col-md-12" style="padding: 0; <#if showControlMenu>margin-top: 10px;</#if>">
+                        <div class="col-sm-12 col-xs-12 col-md-12" style="padding: 0; <#if showControlMenu>margin-top: -20px;</#if>">
                             <#if is_signed_in>
                                 <div class="pull-left">
                                     <a id="toggle-sidebar" class="btn">

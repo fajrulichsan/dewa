@@ -129,15 +129,22 @@
        padding-left: 20px;
    }
 
-   <%-- date field --%>
-   <%--
+   .form-inline {
+       display: block !important;
+   }
+
+   div.dataTables_wrapper div.dataTables_filter {
+       text-align: right;
+       display: flex;
+       justify-content: end;
+   }
+
    .date-input {
        height: 40px !important;
        background-color: white !important;
        color: #444 !important;
        border: 1px solid gray;
    }
-   --%>
 
    /* Select2 */
    .select2-container--default .select2-selection--single {

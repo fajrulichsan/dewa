@@ -6,6 +6,7 @@
 <style type="text/css">
     .navbar_right{
         display: flex;
+        justify-content: flex-end;
         /*width: 230px;*/
     }
     .navbar_right .icon_wrap{

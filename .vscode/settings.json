@@ -4,6 +4,8 @@
             "approve": true,
             "matchCommandLine": true
         },
-        "../../gradlew": true
+        "../../gradlew": true,
+        "./gradlew": true,
+        "../../../gradlew": true
     }
 }

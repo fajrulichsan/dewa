@@ -130,8 +130,8 @@
       "paginate": {
          "first": "",
          "last": "",
-         "next": '<span class="glyphicon glyphicon-menu-right"></span>',
-         "previous": '<span class="glyphicon glyphicon-menu-left"></span>'
+         "next": '<i class="fas fa-chevron-right"></i>',
+         "previous": '<i class="fas fa-chevron-left"></i>'
       },
       "search": "",
       searchPlaceholder: "Search..."
@@ -172,12 +172,15 @@
          language: languageWilayahTable,
          columns: [
             {
-               data: "no",
+               data: null,
                width: "15",
                targets: 0,
                searchable: false,
                orderable: false,
-               className: 'text-center'
+               className: 'text-center',
+               render: function (data, type, row, meta) {
+                  return meta.row + 1;
+               }
             },
             {data: "name"},
             {
@@ -203,6 +206,10 @@
 
             // $('.dataTables_filter').append($searchButton);
             $('.dataTables_filter').prepend('<a href="${wilayahEditURL}&id=0" class="btn btn-info btn_table"><span><i class="fas fa-plus" style="margin-right: 10px"></i> Tambah </span></a>');
+            
+            // Ubah col-md-6 menjadi col-md-1 dan col-md-11
+            $('#wilayah_table_wrapper .row:first .col-sm-6:first').removeClass('col-sm-6').addClass('col-sm-1 col-md-1');
+            $('#wilayah_table_wrapper .row:first .col-sm-6:last').removeClass('col-sm-6').addClass('col-sm-11 col-md-11');
          }
       });
    }

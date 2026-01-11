@@ -1,5 +1,6 @@
 .navbar_right {
     display: flex;
+    justify-content: flex-end;
 }
 
 .navbar_right .icon_wrap {

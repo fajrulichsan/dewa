@@ -135,6 +135,79 @@
 </style>
 --%>
 
+<style>
+    /* Table Header Blue */
+    #otorisasi-menu-table thead th {
+        background-color: #014689 !important;
+        color: white !important;
+    }
+
+    /* DataTables Sorting Icons with FontAwesome */
+    table.dataTable thead .sorting:before,
+    table.dataTable thead .sorting_asc:before,
+    table.dataTable thead .sorting_desc:before {
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        position: absolute;
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    table.dataTable thead .sorting:before {
+        content: "\f0dc";
+        opacity: 0.3;
+    }
+
+    table.dataTable thead .sorting_asc:before {
+        content: "\f0de";
+        opacity: 1;
+    }
+
+    table.dataTable thead .sorting_desc:before {
+        content: "\f0dd";
+        opacity: 1;
+    }
+
+    table.dataTable thead th {
+        position: relative;
+        padding-right: 30px;
+    }
+
+    /* Pagination Style like Banner */
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+        border: none !important;
+        margin: 0 3px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        padding: 5px 10px;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+        background-color: #014689 !important;
+        color: #ffffff !important;
+        border: none !important;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+        background: #e9ecef !important;
+        color: #000 !important;
+        border: none !important;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
+    .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover {
+        color: #ccc !important;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button.previous,
+    .dataTables_wrapper .dataTables_paginate .paginate_button.next {
+        border: none;
+        border-radius: 5px;
+    }
+</style>
+
 <div class="otorisasi-menu cms-menu">
    <h3 class="menu-title">Master Role</h3>
    <div class="tabcontent">
@@ -194,8 +267,8 @@
       "paginate": {
          "first": "",
          "last": "",
-         "next": '<span class="glyphicon glyphicon-menu-right"></span>',
-         "previous": '<span class="glyphicon glyphicon-menu-left"></span>'
+         "next": '<i class="fas fa-chevron-right"></i>',
+         "previous": '<i class="fas fa-chevron-left"></i>'
       },
       "search": "",
       searchPlaceholder: "Search..."
@@ -232,12 +305,15 @@
          language: languageOtorisasiMenuTable,
          columns: [
             {
-               data: "no",
+               data: null,
                width: "15",
                targets: 0,
                searchable: false,
                orderable: false,
                className: 'text-center',
+               render: function (data, type, row, meta) {
+                  return meta.row + 1;
+               }
             },
             {data: "name"},
             {
@@ -263,6 +339,10 @@
 
             // $('.dataTables_filter').append($searchButton);
             $('.dataTables_filter').prepend('<a href="${otorisasiMenuAddURL}&id=0" class="btn btn-info btn_table"><span><i class="fas fa-plus" style="margin-right: 10px"></i> Tambah </span></a>');
+            
+            // Ubah col-md-6 menjadi col-md-1 dan col-md-11
+            $('#otorisasi-menu-table_wrapper .row:first .col-sm-6:first').removeClass('col-sm-6').addClass('col-sm-1 col-md-1');
+            $('#otorisasi-menu-table_wrapper .row:first .col-sm-6:last').removeClass('col-sm-6').addClass('col-sm-11 col-md-11');
          }
       });
    }

@@ -120,8 +120,8 @@
 		"paginate": {
 			"first": "",
 			"last": "",
-			"next": '<span class="glyphicon glyphicon-menu-right"></span>',
-			"previous": '<span class="glyphicon glyphicon-menu-left"></span>'
+			"next": '<i class="fas fa-chevron-right"></i>',
+			"previous": '<i class="fas fa-chevron-left"></i>'
 		},
 		"search": "",
 		searchPlaceholder: "Search..."
@@ -159,7 +159,15 @@
          }
       },
       columns: [
-         { data: "no", "width": "5%", className: "text-center", orderable: false },
+         {
+            data: null,
+            "width": "5%",
+            className: "text-center",
+            orderable: false,
+            render: function (data, type, row, meta) {
+               return meta.row + 1;
+            }
+         },
          { data: "name", "width": "75%", className: "text-center" },
          {
             data: "id",
@@ -185,6 +193,10 @@
                '</span>' +
             '</a>';
          $('.dataTables_filter').prepend(element);
+
+         // Ubah col-md-6 menjadi col-md-1 dan col-md-11
+         $('#master_approval_table_wrapper .row:first .col-sm-6:first').removeClass('col-sm-6').addClass('col-sm-1 col-md-1');
+         $('#master_approval_table_wrapper .row:first .col-sm-6:last').removeClass('col-sm-6').addClass('col-sm-11 col-md-11');
 
          <%--
          if (disableAddButton = true) {

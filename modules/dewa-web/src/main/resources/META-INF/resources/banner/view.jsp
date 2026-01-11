@@ -1,11 +1,23 @@
 <%@ include file="/META-INF/resources/init.jsp" %>
 
 <style>
+    /* ===========================================
+       BANNER STYLES
+       =========================================== */
+    
+    /* Button Styles */
     .btn.btn-delete {
-        color: white;
+        color: #ffffff;
         background-color: #f01f1e;
+        border: none;
+        transition: background-color 0.3s ease;
     }
 
+    .btn.btn-delete:hover {
+        background-color: #d01a19;
+    }
+
+    /* Thumbnail Styles */
     .thumbnail-box {
         background-size: cover;
         background-position: center;
@@ -14,60 +26,84 @@
         height: 200px;
     }
 
-    .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
-        border-top: none;
-        border-left: none;
-        border-right: none;
-        border-bottom: 3px solid #083f78;
-    }
-
-    .bn-hd {
-        border: transparent solid 1px;
-        border-color: #dfe8f1;
+    .thumbnail-box-wrapper.bn-hd {
+        border: 1px solid #dfe8f1;
         margin-bottom: 10px;
         border-radius: 10px;
+        transition: box-shadow 0.3s ease;
     }
 
+    .thumbnail-box-wrapper.bn-hd:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Banner List Item */
     .bn-ls {
         float: left;
         height: 280px;
         width: 28%;
-        margin: 0 1pc 1px 1pc;
+        margin: 0 1rem 1px 1rem;
     }
 
+    /* List Container */
     div#listRisalah {
         margin-top: 5rem;
-        padding: 0 4pc;
+        padding: 0 4rem;
     }
 
-    .thumb-pane {
-        display: flex;
-        gap: 15px;
-        align-items: baseline;
-        padding: 10px;
-        justify-content: center;
+    #myList {
+        list-style: none;
+        padding: 0;
+        margin: 0;
     }
 
     #myList li::marker {
         content: none;
     }
 
-    /*CUSTOM TUI STYLE*/
+    /* Thumbnail Action Pane */
+    .thumb-pane {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        padding: 10px;
+        justify-content: center;
+    }
+
+    /* Navigation Tabs */
+    .nav-tabs > li.active > a,
+    .nav-tabs > li.active > a:hover,
+    .nav-tabs > li.active > a:focus {
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 3px solid #083f78;
+    }
+
+    /* ===========================================
+       TUI PAGINATION STYLES
+       =========================================== */
+    
     .tui-pagination .tui-page-btn {
         border: none !important;
         margin: 0 3px;
         border-radius: 5px;
+        transition: background-color 0.3s ease;
     }
 
-    .tui-pagination .tui-is-selected, .tui-pagination .tui-is-selected:hover {
+    .tui-pagination .tui-is-selected,
+    .tui-pagination .tui-is-selected:hover {
         background-color: #014689;
+        color: #ffffff;
     }
 
-    .tui-last, .tui-first {
+    .tui-last,
+    .tui-first {
         display: none !important;
     }
 
-    .tui-pagination .tui-next, .tui-pagination .tui-prev {
+    .tui-pagination .tui-next,
+    .tui-pagination .tui-prev {
         border: none;
         border-radius: 5px;
     }
@@ -96,17 +132,31 @@
         background: url('<%=request.getContextPath()%>/assets/img/chevron-right.svg') no-repeat 0 0;
     }
 
-    /*END OF TUI STYLE*/
-
+    /* ===========================================
+       RESPONSIVE MEDIA QUERIES
+       =========================================== */
+    
+    /* Tablet View */
     @media only screen and (min-width: 651px) and (max-width: 850px) {
         .bn-ls {
             width: 43%;
         }
+
+        div#listRisalah {
+            padding: 0 2rem;
+        }
     }
 
+    /* Mobile View */
     @media only screen and (max-width: 650px) {
         .bn-ls {
             width: 100%;
+            margin: 0 0 1rem 0;
+        }
+
+        div#listRisalah {
+            margin-top: 3rem;
+            padding: 0 1rem;
         }
     }
 </style>
